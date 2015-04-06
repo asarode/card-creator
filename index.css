@@ -1,0 +1,81 @@
+.deck {
+	border-top: 1px solid #f5f5f5;
+	margin-top: 50px;
+	padding-top: 50px;
+}
+
+.card-item {
+	padding: 15px;
+	margin: 4px;
+	display: inline-block;
+	width: 250px;
+	position: relative;
+}
+
+.card-actions {
+	margin-bottom: 8px;
+}
+
+.card-body {
+	border: 1px solid #474747;
+	padding: 8px;
+}
+
+.card-body input,
+.card-body textarea {
+	border: none;
+	border-bottom: 1px solid #e6e6e6;
+	width: 100%;
+}
+
+.card-body textarea {
+	resize: none;
+}
+
+.card-name {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.card-values input {
+	text-align: right;
+}
+
+
+.card-body-print {
+	display: inline-block;
+	width: 162px;
+	position: relative;
+	border: 2px solid #e6e6e6;
+	padding: 8px;
+}
+
+.card-body-print div {
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.card-row-print {
+	height: 30px;
+	line-height: 30px;
+}
+
+.card-row-large-print {
+	height: 120px;
+}
+
+.card-name-print {
+	font-weight: bold;
+}
+
+.card-type-print {
+	font-size: 10px;
+}
+
+.card-text-print {
+	font-size: 12px;
+}
+
+.card-values-print {
+	text-align: right;
+}
+
