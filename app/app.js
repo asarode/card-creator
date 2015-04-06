@@ -30,12 +30,12 @@ CardCreatorApp.controller('creatorCtrl', ['$scope', 'Print', function($scope, Pr
 	console.log(Print);
 
 	$scope.currentCard = {
-		name: 	'Sahara Worm',
-		cost: 	'Y',
-		type: 	'Creature - Insect',
-		text: 	'Banish this card to win.',
-		values: '3/1',
-		count: 	4
+		name: 	'',
+		cost: 	'',
+		type: 	'',
+		text: 	'',
+		values: '',
+		count: 	1
 	};
 
 	$scope.deck = [];
