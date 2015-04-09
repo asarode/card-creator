@@ -9,25 +9,28 @@ CardCreatorApp.config(function($stateProvider, $urlRouterProvider, $locationProv
 	// Define all routes
 	// ================================================
 
-	$urlRouterProvider.otherwise('/');
+	// $urlRouterProvider.otherwise('/');
 
 	$stateProvider
-		.state('creator', {
-			url: '/',
-			templateUrl: 'views/creator.html'
-		})
 		.state('print', {
 			url: '/print',
 			templateUrl: 'views/print.html'
+		})
+		.state('creator', {
+			url: '/',
+			templateUrl: 'views/creator.html'
 		})
 
 	// ================================================
 });
 
+CardCreatorApp.run(['$state', '$stateParams',
+    function($state, $stateParams) {
+        //this solves page refresh and getting back to state
+}]);
+
 
 CardCreatorApp.controller('creatorCtrl', ['$scope', 'Print', function($scope, Print) {
-
-	console.log(Print);
 
 	$scope.currentCard = {
 		name: 	'',
@@ -60,6 +63,7 @@ CardCreatorApp.controller('creatorCtrl', ['$scope', 'Print', function($scope, Pr
 
 	$scope.printDeck = function() {
 		Print.storeDeck($scope.deck);
+		// $window.location.href='/print';
 	}
 
 }]);
@@ -68,7 +72,6 @@ CardCreatorApp.controller('creatorCtrl', ['$scope', 'Print', function($scope, Pr
 CardCreatorApp.controller('printCtrl', ['Print', function(Print) {
 
 	vm = this;
-	console.log(Print.loadDeck());
 	vm.deck = Print.loadDeck();
 
 }]);

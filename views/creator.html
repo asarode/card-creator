@@ -27,7 +27,7 @@
 		</div>
 		<input type="submit" class="btn btn-default" value="Add Card(s)" ng-disabled="cardForm.$invalid">
 	</form>	
-	<h2>Card Count: {{ deckCount }} <a ui-sref="print" class="btn btn-success btn-lg" ng-click="printDeck()">Print Deck</a></h2>
+	<h2>Card Count: {{ deckCount }} <a href="/print" class="btn btn-success btn-lg" ng-click="printDeck()">Print Deck</a></h2>
 	<div class="deck">
 		<h1 ng-show="!deck.length">YOU HAVE NO CARDS! ADD SOME, BUDDY!</h1>
 		<div class="card-item" ng-repeat="card in deck track by $index">
