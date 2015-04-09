@@ -10,7 +10,6 @@ angular.module('printService', [])
 
 	Print.storeDeck = function(data) {
 		deck = data;
-		console.log("got here");
 	}
 
 	return Print;
