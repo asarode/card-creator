@@ -1,5 +1,5 @@
 <div class="container" ng-controller="creatorCtrl as creator">
-	<div class="col-md-6 card-section">
+	<div class="card-section">
 		<form class="card-form" name="cardForm" novalidate ng-submit="addCard()">
 			<div class="alert alert-danger" ng-show="cardForm.text.$invalid">Sorry friend, you went over the 175 character limit.</div>
 			<div class="card-body">
@@ -23,36 +23,11 @@
 				<label for="cardName">Number in deck</label>
 				<input type="number" class="form-control" id="cardName" ng-model="currentCard.count">
 			</div>
-			<!-- <div class="form-group">
-				<label for="cardName">Name</label>
-				<input type="text" class="form-control" id="cardName" placeholder="Ca$per" ng-model="currentCard.name">
-			</div>
-			<div class="form-group">
-				<label for="cardCost">Cost</label>
-				<input type="text" class="form-control" id="cardName" ng-model="currentCard.cost">
-			</div>
-			<div class="form-group">
-				<label for="cardType">Type</label>
-				<input type="text" class="form-control" id="cardType" ng-model="currentCard.type">
-			</div>
-			<div class="form-group">
-				<label for="cardText">Text</label>
-				<div class="alert alert-danger" ng-show="cardForm.text.$invalid">Sorry friend, you went over the 175 character limit.</div>
-				<input type="text" class="form-control" id="cardText" name="text" ng-model="currentCard.text" ng-maxlength="175">
-			</div>
-			<div class="form-group">
-				<label for="cardValues">Values</label>
-				<input type="text" class="form-control" id="cardName" ng-model="currentCard.value">
-			</div>
-			<div class="form-group">
-				<label for="cardName">Number in deck</label>
-				<input type="number" class="form-control" id="cardName" ng-model="currentCard.count">
-			</div> -->
 			<input type="submit" class="btn btn-default" value="Add Card(s)" ng-disabled="cardForm.$invalid">
 		</form>	
 		<h2>Card Count: {{ deckCount }} <a href="/print" class="btn btn-success btn-lg" ng-click="printDeck()">Print Deck</a></h2>
 	</div>
-	<div class="col-md-6 col-md-offset-6">
+	<div class="deck-section">
 		<div class="deck">
 			<h1 ng-show="!deck.length">YOU HAVE NO CARDS! ADD SOME, BUDDY!</h1>
 			<div class="card-item" ng-repeat="card in deck track by $index">
