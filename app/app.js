@@ -3,7 +3,7 @@ var CardCreatorApp = angular.module('CardCreatorApp', ['printService', 'ui.route
 
 CardCreatorApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 	
-	$locationProvider.html5Mode(true);
+	// $locationProvider.html5Mode(true);
 
 	// ================================================
 	// Define all routes
@@ -12,16 +12,15 @@ CardCreatorApp.config(function($stateProvider, $urlRouterProvider, $locationProv
 	// $urlRouterProvider.otherwise('/');
 
 	$stateProvider
+		.state('uploader', {
+			url: '/',
+			templateUrl: 'views/uploader.html'
+		})
 		.state('print', {
 			url: '/print',
 			templateUrl: 'views/print.html'
 		})
-		.state('creator', {
-			url: '/',
-			templateUrl: 'views/creator.html'
-		})
 
-	// ================================================
 });
 
 CardCreatorApp.run(['$state', '$stateParams',
@@ -29,41 +28,38 @@ CardCreatorApp.run(['$state', '$stateParams',
         //this solves page refresh and getting back to state
 }]);
 
+CardCreatorApp.controller('uploaderCtrl', ['$scope', 'Print', function($scope, Print) {
 
-CardCreatorApp.controller('creatorCtrl', ['$scope', 'Print', function($scope, Print) {
+	var deckJSON = {};
 
-	$scope.currentCard = {
-		name: 	'',
-		cost: 	'',
-		type: 	'',
-		text: 	'',
-		values: '',
-		count: 	1
-	};
+	document.getElementById("deckFile").addEventListener("change", function(event) {
+		Papa.parse(event.target.files[0], {
+				header: true,
+				dynamicTyping: true,
+				complete: function(results) {
+					var deckList = [];
+					for (var index = 0; index < results.data.length; index++) {
+						var card = results.data[index];
+						for (var i = 0; i < card.Quantity; i++) {
+							deckList.push(card);
+						};
+					};
 
-	$scope.deck = [];
+					deckJSON = JSON.stringify(deckList);
+					deckJSON = JSON.parse(deckJSON);
+					console.log(deckJSON);
 
-	$scope.deckCount = 0;
-
-	$scope.addCard = function() {
-		// make a deep copy of the current card so changing models
-		// in the deck doesn't effect the current card form
-		var card = JSON.parse(JSON.stringify($scope.currentCard));
-
-		for (var i = 0; i < card.count; i++) {
-			$scope.deck.push(card);
-		}
-		$scope.deckCount = $scope.deckCount + card.count;
-	}
-
-	$scope.deleteCard = function(index) {
-		$scope.deck.splice(index, 1);
-		$scope.deckCount--;
-	}
+					console.log("================================================");
+					console.log("CSV TO JSON RESULTS");
+					console.log("================================================");
+					console.log(results);
+					console.log("================================================");
+				}
+			})
+	});
 
 	$scope.printDeck = function() {
-		Print.storeDeck($scope.deck);
-		// $window.location.href='/print';
+		Print.storeDeck(deckJSON);
 	}
 
 }]);
@@ -73,6 +69,7 @@ CardCreatorApp.controller('printCtrl', ['Print', function(Print) {
 
 	vm = this;
 	vm.deck = Print.loadDeck();
+	console.log(vm.deck);
 
 }]);
 

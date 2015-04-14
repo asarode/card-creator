@@ -1,14 +1,28 @@
+body {
+	font-family: 'Lora', serif;
+	padding-top: 30px;
+	min-width: 740px;
+} 
+
 .card-form {
 	width: 300px;
 }
 
 .card-section {
+	width: 50%;
+	display: inline-block;
+}
+
+.deck-section {
+	height: 100vh;
+	overflow-y: scroll;
 	position: fixed;
+	width: 50%;
+	display: inline-block;
 }
 
 .card-form .card-body {
 	border: 1px solid #474747;
-	margin: 30px 0;
 	padding: 15px;
 }
 
@@ -16,9 +30,6 @@
 	font-weight: normal;
 }
 
-.deck {
-	margin-top: 30px;
-}
 
 .card-item {
 	padding: 0 15px;
@@ -36,6 +47,7 @@
 .card-body {
 	border: 1px solid #474747;
 	padding: 8px;
+	border-radius: 3px;
 }
 
 .card-body input,
@@ -43,6 +55,19 @@
 	border: none;
 	border-bottom: 1px solid #e6e6e6;
 	width: 100%;
+}
+
+.card-body input:focus,
+.card-body input:focus:hover,
+.card-body textarea:focus,
+.card-body textarea:focus:hover {
+	outline: none;
+	background-color: #FFFEC2;
+}
+
+.card-body input:hover,
+.card-body textarea:hover {
+	background-color: #FFFFF0;
 }
 
 .card-body textarea {
@@ -65,6 +90,7 @@
 	position: relative;
 	border: 2px solid #e6e6e6;
 	padding: 8px;
+	margin: 8px
 }
 
 .card-body-print div {
@@ -94,5 +120,16 @@
 
 .card-values-print {
 	text-align: right;
+}
+
+
+@media print {
+	body {
+		padding: 0;
+	}
+
+	.card-body-print {
+		margin: 0;
+	}
 }
 
