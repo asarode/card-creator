@@ -1,19 +1,19 @@
 <div class="controller" ng-controller="printCtrl as printer">
-	<div class="card-body-print" ng-repeat="card in printer.deck track by $index">
-		<div class="card-row-print card-name-print">
-			{{ card.name }}
+	<div class="card-body" ng-repeat="card in printer.deck">
+		<div class="card-row card-name">
+			{{ card.Name }}
 		</div>
-		<div class="card-row-print">
-			{{ card.cost }}
+		<div class="card-row">
+			{{ card.Cost }}
 		</div>
-		<div class="card-row-print card-type-print">
-			{{ card.type }}
+		<div class="card-row card-type">
+			{{ card.Type }}
 		</div>
-		<div class="card-row-large-print card-text-print">
-			{{ card.text }}
+		<div class="card-row-large card-text">
+			{{ card.Text }}
 		</div>
-		<div class="card-row-print card-values-print">
-			{{ card.values }}
+		<div class="card-row-print card-values">
+			{{ card.Values }}
 		</div>
 	</div>
 </div>
