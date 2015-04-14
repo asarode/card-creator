@@ -22,6 +22,10 @@ CardCreatorApp.config(function($stateProvider, $urlRouterProvider, $locationProv
 		})
 });
 
+CardCreatorApp.run(['$state', '$stateParams',
+    function($state, $stateParams) {
+        //this solves page refresh and getting back to state
+}]);
 
 CardCreatorApp.controller('uploaderCtrl', ['$scope', 'Print', function($scope, Print) {
 
