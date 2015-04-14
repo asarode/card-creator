@@ -9,7 +9,7 @@ CardCreatorApp.config(function($stateProvider, $urlRouterProvider, $locationProv
 	// Define all routes
 	// ================================================
 
-	// $urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
 		.state('uploader', {
