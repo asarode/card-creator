@@ -1,135 +1,54 @@
 body {
 	font-family: 'Lora', serif;
-	padding-top: 30px;
-	min-width: 740px;
 } 
 
-.card-form {
-	width: 300px;
-}
-
-.card-section {
-	width: 50%;
-	display: inline-block;
-}
-
-.deck-section {
-	height: 100vh;
-	overflow-y: scroll;
-	position: fixed;
-	width: 50%;
-	display: inline-block;
-}
-
-.card-form .card-body {
-	border: 1px solid #474747;
-	padding: 15px;
-}
-
-.card-form label {
-	font-weight: normal;
-}
-
-
-.card-item {
-	padding: 0 15px;
-	margin: 4px;
-	margin-bottom: 30px;
-	display: inline-block;
-	width: 250px;
-	position: relative;
-}
-
-.card-actions {
-	margin-bottom: 8px;
-}
-
 .card-body {
-	border: 1px solid #474747;
-	padding: 8px;
-	border-radius: 3px;
-}
-
-.card-body input,
-.card-body textarea {
-	border: none;
-	border-bottom: 1px solid #e6e6e6;
-	width: 100%;
-}
-
-.card-body input:focus,
-.card-body input:focus:hover,
-.card-body textarea:focus,
-.card-body textarea:focus:hover {
-	outline: none;
-	background-color: #FFFEC2;
-}
-
-.card-body input:hover,
-.card-body textarea:hover {
-	background-color: #FFFFF0;
-}
-
-.card-body textarea {
-	resize: none;
-}
-
-.card-name {
-	font-size: 16px;
-	font-weight: bold;
-}
-
-.card-values input {
-	text-align: right;
-}
-
-
-.card-body-print {
+	width: 200px;
 	display: inline-block;
-	width: 162px;
-	position: relative;
-	border: 2px solid #e6e6e6;
+	width: 150px;
+	border: 1px solid #000;
+	vertical-align: top;
 	padding: 8px;
-	margin: 8px
 }
 
-.card-body-print div {
-	border-bottom: 1px solid #e6e6e6;
-}
-
-.card-row-print {
-	height: 30px;
-	line-height: 30px;
-}
-
-.card-row-large-print {
-	height: 120px;
-}
-
-.card-name-print {
-	font-weight: bold;
-}
-
-.card-type-print {
-	font-size: 10px;
-}
-
-.card-text-print {
+.card-row {
+	min-height: 20px;
+	line-height: 20px;
 	font-size: 12px;
 }
 
-.card-values-print {
-	text-align: right;
+.card-row span:last-child {
+	float: right;
 }
 
+.card-row-large {
+	height: 120px;
+}
 
-@media print {
-	body {
-		padding: 0;
-	}
+.card-major {
+	font-weight: bold;
+	font-size: 14px;
+}
 
-	.card-body-print {
-		margin: 0;
-	}
+.card-minor {
+	font-size: 10px;
+}
+
+.card-values {
+	font-size: 16px;
+}
+
+.card-tags {
+	font-style: italic;
+}
+
+p {
+	padding: 0;
+	margin: 0;
+}
+
+pre {
+	font-family: 'Lora', serif;
+	white-space: pre-wrap;
 }
 

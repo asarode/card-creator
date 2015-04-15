@@ -1,19 +1,19 @@
 <div class="controller" ng-controller="printCtrl as printer">
 	<div class="card-body" ng-repeat="card in printer.deck">
-		<div class="card-row card-name">
+		<div class="card-row card-major">
 			{{ card.Name }}
 		</div>
 		<div class="card-row">
-			{{ card.Cost }}
+			<span>{{ card.Rarity }}</span><span>{{ card.Cost }}</span>
 		</div>
-		<div class="card-row card-type">
-			{{ card.Type }}
+		<div class="card-row">
+			{{ card.Type }} - {{ card.Race }} <span ng-show="hasValue(card.Class)">, </span> {{ card.Class }}
 		</div>
-		<div class="card-row-large card-text">
-			{{ card.Text }}
+		<div class="card-row-large card-minor">
+			<pre><p class="card-tags">{{ card.Tags }}</p>{{ card.Text }}</pre>
 		</div>
-		<div class="card-row-print card-values">
-			{{ card.Values }}
+		<div class="card-row card-major card-values push-right">
+			<span ng-show="hasValue(card.Attack)">{{ card.Attack }}/{{ card.Health }}</span>
 		</div>
 	</div>
 </div>
