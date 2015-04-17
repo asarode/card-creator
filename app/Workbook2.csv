@@ -1,0 +1,12 @@
+Name,Rarity,Cost,Type,Race,Class,Attack,Health,Tags,Text,Quantity
+Slaughter,Common,{4},Spell,Sorcery,,,,,Destroy Target Creature.,4
+Banish,Common,{5},Spell,Sorcery,,,,,Exile Target Creature.,3
+Dispell,Common,{3},Spell,Instant,,,,,Counter or Remove target spell.,2
+Golden Age,Common,{0},Spell,Sorcery,,,,,You may assign an additional worker this turn.,1
+Silence,Common,{2},Spell,Sorcery,,,,,Silence target Creature.,1
+Shrapnel,Common,{4},Spell,Sorcery,,,,,Deal 5 damage to everything.,1
+Quicksand,Common,{3},Spell,Instant,,,,,"When a creature an opponent controls enters the battlefield, destory it.",1
+Spike Pit,Common,{3},Spell,Instant,,,,,"When a creature an opponent controls attacks, destroy that creature.",1
+Altered Texts,Common,{2},Spell,Instant,,,,,"When an opponent casts a spell, counter it.",1
+Lash of the Whip,Common,{2},Spell,Instant,,,,,Deal 5 damage.,1
+Monster 1,Common,{2},Creature,Human,,4,4,"Deathtouch, Flying",Upkeep: Gain 1 life. //Deal 7 damage.,4

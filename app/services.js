@@ -5,11 +5,17 @@ angular.module('printService', [])
 	var deck = {};
 
 	Print.loadDeck = function() {
-		return deck;
+		if (localStorage["deck"]) {
+			return JSON.parse(localStorage["deck"]);
+		} 
+		else {
+			return deck;
+		}
 	}
 
 	Print.storeDeck = function(data) {
 		deck = data;
+		localStorage["deck"] = JSON.stringify(data);
 	}
 
 	return Print;

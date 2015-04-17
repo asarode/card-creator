@@ -1,6 +1,68 @@
+/* ================================= */
+/* ~~ SKIN CLASSES AND GLOBAL MODS	 */
+/* ================================= */
+
 body {
 	font-family: 'Lora', serif;
 } 
+
+section {
+	padding: 20px 0;
+	text-align: center;
+}
+
+p {
+	padding: 0;
+	margin: 0;
+}
+
+pre {
+	font-family: 'Lora', serif;
+	white-space: pre-wrap;
+}
+
+/* ================================= */
+/* ~~ GLOBAL ELEMENTS	 			 */
+/* ================================= */
+
+.btn {
+	color: #FB6107;
+	border-radius: 3px;
+	text-decoration: none;
+	border: 1px solid rgba(0,0,0,0);
+	padding: 12px;
+	margin: 12px;
+	font-size: 16px;
+	font-family: inherit;
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+	transition: all 250ms ease;
+}
+
+.btn:hover {
+	cursor: pointer;
+	box-shadow: 0px 0px 2px 0px #FB6107;
+	transition: all 250ms ease;
+}
+
+.btn:focus,
+.btn:active {
+	outline: none;
+}
+
+.btn:focus:active {
+	transition: none;
+	box-shadow: 0px 0px 5px 0px #FB6107;
+}
+
+.btn:visited {
+	color: inherit;
+}
+
+/* ================================= */
+/* ~~ MODULES	 				 	 */
+/* ================================= */
+
+/* -- CARDS 						 */
 
 .card-body {
 	width: 200px;
@@ -42,13 +104,38 @@ body {
 	font-style: italic;
 }
 
-p {
-	padding: 0;
-	margin: 0;
+/* -- FILE UPLOADING 				 */
+
+.upload-btn.btn {
+	background-color: rgba(0,0,0,0);
+	padding: 8px;
+	border-color: #FB6107;
 }
 
-pre {
-	font-family: 'Lora', serif;
-	white-space: pre-wrap;
+.print-btn.btn {
+	background-color: #FB6107;
+	color: #fff;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	display: inline-block;
+	text-align: center;
+	font-size: 36px;
+}
+
+#file-name {
+	color: #FB6107;
+	text-decoration: underline;
+}
+
+#file-name.fade {
+	opacity: 0.5;
+	text-decoration: none;
+}
+
+#deck-file {
+	visibility: hidden;
+	position: absolute;
+	left: -9999px;
 }
 

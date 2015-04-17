@@ -1,4 +1,10 @@
-<div class="container" ng-controller="uploaderCtrl as uploader">
-	<input type="file" id="deckFile" value="Upload Deck File">
-	<a ui-sref="print" ng-click="printDeck()">Print Deck</a>
+<div class="uploader" ng-controller="uploaderCtrl as uploader">
+	<section>
+		<button id="deck-file-pseudo" class="upload-btn btn">Upload</button>
+		<p id="file-name" ng-class="(fileName == 'No file') ? 'fade' : ''">{{ fileName }}</p>
+		<input type="file" id="deck-file" value="Upload Deck File">
+	</section>
+	<section>
+		<a ui-sref="print" class="print-btn btn" ng-click="printDeck()">Print Deck</a>
+	</section>
 </div>

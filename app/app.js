@@ -22,45 +22,52 @@ CardCreatorApp.config(function($stateProvider, $urlRouterProvider, $locationProv
 		})
 });
 
-CardCreatorApp.run(['$state', '$stateParams',
-    function($state, $stateParams) {
-        //this solves page refresh and getting back to state
-}]);
-
 CardCreatorApp.controller('uploaderCtrl', ['$scope', 'Print', function($scope, Print) {
 
 	var deckJSON = {};
 
-	document.getElementById("deckFile").addEventListener("change", function(event) {
-		Papa.parse(event.target.files[0], {
-				header: true,
-				dynamicTyping: true,
-				complete: function(results) {
-					var deckList = [];
-					for (var index = 0; index < results.data.length; index++) {
-						var card = results.data[index];
-						card.Text = card.Text.replace(RegExp("//","g"), "\n");
-						for (var i = 0; i < card.Quantity; i++) {
-							deckList.push(card);
-						};
-					};
-
-					deckJSON = JSON.stringify(deckList);
-					deckJSON = JSON.parse(deckJSON);
-					console.log(deckJSON);
-
-					console.log("================================================");
-					console.log("CSV TO JSON RESULTS");
-					console.log("================================================");
-					console.log(results);
-					console.log("================================================");
-				}
-			})
-	});
-
 	$scope.printDeck = function() {
 		Print.storeDeck(deckJSON);
 	}
+
+	$scope.fileName = 'No file';
+
+	var papaParseFile = function(file) {
+		Papa.parse(file, {
+			header: true,
+			dynamicTyping: true,
+			complete: function(results) {
+				var deckList = [];
+				for (var index = 0; index < results.data.length; index++) {
+					var card = results.data[index];
+					card.Text = card.Text.replace(RegExp("//","g"), "\n");
+					for (var i = 0; i < card.Quantity; i++) {
+						deckList.push(card);
+					};
+				};
+
+				deckJSON = JSON.stringify(deckList);
+				deckJSON = JSON.parse(deckJSON);
+
+				console.log("================================================");
+				console.log("CSV TO JSON RESULTS");
+				console.log("================================================");
+				console.log(deckJSON);
+				console.log("================================================");
+			}
+		});
+	}
+
+	document.getElementById("deck-file-pseudo").addEventListener("click", function(event) {
+		document.getElementById("deck-file").click();
+	});
+
+	document.getElementById("deck-file").addEventListener("change", function(event) {
+		$scope.fileName = event.target.files[0].name;
+		$scope.$apply();
+
+		papaParseFile(event.target.files[0]);
+	});
 
 }]);
 
@@ -69,8 +76,7 @@ CardCreatorApp.controller('printCtrl', ['$scope', 'Print', function($scope, Prin
 
 	vm = this;
 	vm.deck = Print.loadDeck();
-	console.log(vm.deck);
-
+	
 	$scope.hasValue = function(field) {
 		return field.toString().length > 0;
 	}
