@@ -6,7 +6,7 @@
 		<div class="card-row">
 			<span>{{ card.Rarity }}</span><span class="push-right">{{ card.Cost }}</span>
 		</div>
-		<div class="card-row">
+		<div class="card-row" ng-class="(card.Type.length + card.Class.length + card.SubClass.length >= 20) ? 'small' : ''">
 			{{ card.Type }} - {{ card.Class }}<span ng-show="hasValue(card.SubClass)">, {{ card.SubClass }}</span>
 		</div>
 		<div class="card-row-large card-minor">
