@@ -40,7 +40,7 @@ CardCreatorApp.controller('uploaderCtrl', ['$scope', 'Print', function($scope, P
 				var deckList = [];
 				for (var index = 0; index < results.data.length; index++) {
 					var card = results.data[index];
-					// card.Text = card.Text.replace(RegExp("//","g"), "\n");
+					card.Effect = card.Effect.replace(RegExp("//","g"), "\n");
 					for (var i = 0; i < card.Quantity; i++) {
 						deckList.push(card);
 					};
