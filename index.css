@@ -79,7 +79,11 @@ pre {
 	font-size: 12px;
 }
 
-.card-row span:last-child {
+.card-row.small {
+	font-size: 10px;
+}
+
+.push-right {
 	float: right;
 }
 
