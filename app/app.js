@@ -38,7 +38,7 @@ CardCreatorApp.controller('uploaderCtrl', ['$scope', 'Print', function($scope, P
 			dynamicTyping: true,
 			complete: function(results) {
 				var deckList = [];
-				for (var index = 0; index < results.data.length; index++) {
+				for (var index = 0; index < results.data.length - 1 ; index++) {
 					var card = results.data[index];
 					card.Effect = card.Effect.replace(RegExp("//","g"), "\n");
 					for (var i = 0; i < card.Quantity; i++) {
